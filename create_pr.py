@@ -15,7 +15,7 @@ for cont in range(0,len(name_issue)):
         break
 
 # cria o nome do pr
-title_pr = 'WIP: ' + num_issue + ' - ' + name_issue
+title_pr = 'WIP: ' + name_issue
 
 print(title_pr)
 print(name_issue)
@@ -23,7 +23,7 @@ print(num_issue)
 
 
 # cria o pr
-repo.create_pull(title='teste pr', body='teste', head='cfloriani:138-alteracoes-no-docker', base='master')
+repo.create_pull(title=title_pr, body='#' + num_issue, head=os.getenv('user') + ':' + name_issue, base='master')
 
 #repo.create_pull(title=title_pr, body='#' + num_issue, head=os.getenv('user') + ':' + name_issue, base='master')
 
