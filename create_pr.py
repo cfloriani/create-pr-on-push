@@ -33,7 +33,6 @@ try:
                 pr = repo.get_pull(pull_request.number)
                 pr.add_to_labels('pr: em andamento')
                 break
-            
 except Exception as erro:
     print('ERRO: Aconteceu o erro abaixo')
     print(erro)
