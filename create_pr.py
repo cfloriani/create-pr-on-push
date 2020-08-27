@@ -1,14 +1,24 @@
 from github import Github
-from slugify import slugify
 import sys, os
 
 # connet in repository
 g = Github(sys.argv[1])
 repo = g.get_repo(os.getenv('repository'))
 
-title_pr = os.getenv('issue_num') + ' - ' + os.getenv('issue')
+# pega o nome da issue
+name_issue = os.getenv('ref')[11:]
 
-repo.create_pull(title='WIP: ' + title_pr, body='#' + os.getenv('issue_num'), head=os.getenv('user') + ':' + os.getenv('issue_num') + '-' + slugify(os.getenv('issue')), base='master')
+#pega o numero da issue
+for cont in range(0,len(name_issue)):
+    if name_issue[cont] == '-':
+        num_issue = name_issue[:cont]
+        break
+
+# cria o nome do pr
+title_pr = 'WIP: ' + num_issue + ' - ' + name_issue
+
+# cria o pr
+repo.create_pull(title=title_pr, body='#' + num_issue, head=os.getenv('user') + ':' + name_issue, base='master')
 
 
 
