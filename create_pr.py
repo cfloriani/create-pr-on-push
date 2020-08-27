@@ -20,7 +20,7 @@ title_pr = 'WIP: ' + name_issue
 # cria o pr
 try:
     repo.create_pull(title=title_pr, body='#' + num_issue, head=os.getenv('user') + ':' + name_issue, base='master')
-    repo.create_label(name='pr-teste',color='#e53242')
+    repo.create_label(name='pr-teste',color='e53242',description='test label')
 except Exception as erro:
     print('ERRO: Aconteceu o erro abaixo')
     print(erro)
