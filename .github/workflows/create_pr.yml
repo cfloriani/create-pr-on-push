@@ -18,7 +18,7 @@ jobs:
         architecture: 'x64'
     - name: Install Dependencies
       run: pip install PyGithub
-    - name: Exec Python Issue Assign
+    - name: Exec Python Create PR
       env: 
           ref: ${{ github.ref }}
           user: ${{ github.actor }}
