@@ -17,7 +17,7 @@ for cont in range(0,len(name_issue)):
 # cria o nome do pr
 title_pr = 'WIP: ' + name_issue
 
-# # cria o pr
+# cria o pr
 # verificar se existe o pr
 existe = False
 for pull_request in repo.get_pulls(state='open'):
