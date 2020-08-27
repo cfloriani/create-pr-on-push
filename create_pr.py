@@ -17,11 +17,16 @@ for cont in range(0,len(name_issue)):
 # cria o nome do pr
 title_pr = 'WIP: ' + name_issue
 
-# cria o pr
-try:
-    repo.create_pull(title=title_pr, body='#' + num_issue, head=os.getenv('user') + ':' + name_issue, base='master')
-    repo.create_label(name='pr-teste',color='e53242',description='test label')
-except Exception as erro:
-    print('ERRO: Aconteceu o erro abaixo')
-    print(erro)
-    
+# # cria o pr
+# try:
+#     repo.create_pull(title=title_pr, body='#' + num_issue, head=os.getenv('user') + ':' + name_issue, base='master')
+#     repo.create_label(name='pr-teste',color='e53242',description='test label')
+# except Exception as erro:
+#     print('ERRO: Aconteceu o erro abaixo')
+#     print(erro)
+
+
+pr = repo.get_pull(9)
+print(pr.labels)
+for label in pr.get_labels():
+    print(label.name)
