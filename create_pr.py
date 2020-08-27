@@ -18,4 +18,8 @@ for cont in range(0,len(name_issue)):
 title_pr = 'WIP: ' + name_issue
 
 # cria o pr
-repo.create_pull(title=title_pr, body='#' + num_issue, head=os.getenv('user') + ':' + name_issue, base='master')
+try:
+    repo.create_pull(title=title_pr, body='#' + num_issue, head=os.getenv('user') + ':' + name_issue, base='master')
+except Exception as erro:
+    print('Aconteceu o erro abaixo')
+    print(erro)   
