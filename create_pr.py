@@ -19,12 +19,21 @@ title_pr = 'WIP: ' + name_issue
 
 # # cria o pr
 try:
-    repo.create_pull(title=title_pr, body='#' + num_issue, head=os.getenv('user') + ':' + name_issue, base='master')
+    # verificar se existe o pr
     for pull_request in repo.get_pulls(state='open'):
         if pull_request.title == title_pr:
-            pr = repo.get_pull(pull_request.number)
-            pr.add_to_labels('pr: em andamento')
-            break
+            existe = True
+    
+    # caso não exista ele cria
+    if existe != True:
+        repo.create_pull(title=title_pr, body='#' + num_issue, head=os.getenv('user') + ':' + name_issue, base='master')
+        # pesquisa o número do pr para atribuir a label
+        for pull_request in repo.get_pulls(state='open'):
+            if pull_request.title == title_pr:
+                pr = repo.get_pull(pull_request.number)
+                pr.add_to_labels('pr: em andamento')
+                break
+            
 except Exception as erro:
     print('ERRO: Aconteceu o erro abaixo')
     print(erro)
