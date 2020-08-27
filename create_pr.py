@@ -28,10 +28,3 @@ try:
 except Exception as erro:
     print('ERRO: Aconteceu o erro abaixo')
     print(erro)
-
-
-pr = repo.get_pulls()
-pr.add_to_labels('pr-teste')
-print(pr.labels)
-for label in pr.get_labels():
-    print(label.name)
