@@ -26,7 +26,10 @@ for pull_request in repo.get_pulls(state='open'):
 
 # caso não exista ele cria
 if existe is False:
-    repo.create_pull(title=title_pr, body='#' + num_issue, head=os.getenv('user') + ':' + name_issue, base='master')
+    try:
+        repo.create_pull(title=title_pr, body='#' + num_issue, head=os.getenv('user') + ':' + name_issue, base='master')
+    except:
+        print('Branch sem alterações')
     # pesquisa o número do pr para atribuir a label
     for pull_request in repo.get_pulls(state='open'):
         if pull_request.title == title_pr:
