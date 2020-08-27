@@ -21,6 +21,6 @@ jobs:
     - name: Exec Python Issue Assign
       env: 
           ref: ${{ github.ref }}
-          user: ${{ github.event.head_commit.username }}
+          user: ${{ github.actor }}
           repository: ${{ github.repository }}
       run: python create_pr.py ${{ secrets.GITHUB_TOKEN }} 
