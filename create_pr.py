@@ -23,4 +23,4 @@ try:
     repo.create_label(name='bug',color='#e53242')
 except Exception as erro:
     print('ERRO: Aconteceu o erro abaixo')
-    print(erro)    
+    print(erro)
