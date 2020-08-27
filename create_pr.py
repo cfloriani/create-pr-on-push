@@ -25,7 +25,7 @@ try:
             existe = True
     
     # caso não exista ele cria
-    if existe != True:
+    if existe is None:
         repo.create_pull(title=title_pr, body='#' + num_issue, head=os.getenv('user') + ':' + name_issue, base='master')
         # pesquisa o número do pr para atribuir a label
         for pull_request in repo.get_pulls(state='open'):
