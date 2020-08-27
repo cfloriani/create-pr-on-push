@@ -24,3 +24,4 @@ try:
 except Exception as erro:
     print('ERRO: Aconteceu o erro abaixo')
     print(erro)
+    
